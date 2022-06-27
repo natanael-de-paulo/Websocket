@@ -13,3 +13,8 @@ const UserSchema = new Schema({
   name: String,
   avatar: String
 });
+
+
+const User = mongoose.model<User>("Users", UserSchema);
+
+export { User }
