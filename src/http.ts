@@ -2,9 +2,13 @@ import express from "express"
 import path from 'path'
 import { createServer } from "http"
 import { Server } from "socket.io"
+import mongoose, { Types } from "mongoose"
 
 const app = express()
 const server = createServer(app)
+
+
+mongoose.createConnection("mongodb://localhost/rocketsocket").asPromise()
 
 app.use(express.static(path.join(__dirname, "..", "public")))
 
