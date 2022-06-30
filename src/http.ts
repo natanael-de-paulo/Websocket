@@ -9,7 +9,7 @@ const app = express()
 const server = createServer(app)
 
 
-mongoose.createConnection("mongodb://localhost/rocketsocket").asPromise()
+mongoose.connect("mongodb://localhost/rocketsocket")
 
 app.use(express.static(path.join(__dirname, "..", "public")))
 

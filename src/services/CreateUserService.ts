@@ -22,6 +22,9 @@ class CreateUserService {
         },
         {
           $set: { socketId, avatar, name },
+        },
+        {
+          new: true
         }
       )
       return user
