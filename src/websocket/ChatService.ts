@@ -13,7 +13,7 @@ io.on("connect", socket => {
       name, 
       socketId: socket.id,
     })
-
+  
     console.log(user);
   })
 })

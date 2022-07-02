@@ -13,6 +13,15 @@ function onLoad() {
 
   console.log(name, avatar, email)
 
+  document.querySelector('.user_logged').innerHTML += `
+    <img
+      class="avatar_user_logged"
+      src=${avatar}
+    />
+    <strong id="user_logged">${name}</strong>
+  
+  `
+
   socket.emit('start', {
     email,
     name,

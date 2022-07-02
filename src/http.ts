@@ -8,7 +8,6 @@ import mongoose, { Types } from "mongoose"
 const app = express()
 const server = createServer(app)
 
-
 mongoose.connect("mongodb://localhost/rocketsocket")
 
 app.use(express.static(path.join(__dirname, "..", "public")))
@@ -22,6 +21,5 @@ app.get("/", (req, res) => {
     message: "Hello Websocket",
   });
 });
-
 
 export {server, io}
