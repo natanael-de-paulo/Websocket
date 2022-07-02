@@ -14,6 +14,6 @@ io.on("connect", socket => {
       socketId: socket.id,
     })
   
-    console.log(user);
+    socket.broadcast.emit("new_users", user)
   })
 })

@@ -19,7 +19,6 @@ function onLoad() {
       src=${avatar}
     />
     <strong id="user_logged">${name}</strong>
-  
   `
 
   socket.emit('start', {
@@ -27,9 +26,30 @@ function onLoad() {
     name,
     avatar
   })
+
+  socket.on('new_users', data => {
+    addUser(data)
+  })
 }
 
 onLoad()
+
+function addUser(user) {
+  const usersList = document.getElementById('users_list')
+  usersList.innerHTML += `
+    <li
+      class="user_name_list"
+      id="user_${user._id}"
+      idUser="${user._id}"
+      >
+        <img
+          class="nav_avatar"
+          src=${user.avatar}
+        />
+        ${user.name}
+    </li>
+  `
+}
 
 // function onLoad() {
 //   const urlParams = new URLSearchParams(window.location.search)
