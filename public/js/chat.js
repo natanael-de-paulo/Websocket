@@ -27,8 +27,22 @@ function onLoad() {
     avatar
   })
 
-  socket.on('new_users', data => {
-    addUser(data)
+  socket.on('new_users', user => {
+    const existInDiv = document.getElementById(`user_${user._id}`)
+
+    if (!existInDiv) {
+      addUser(user)
+    }
+  })
+
+  socket.emit('get_users', users => {
+    console.log('getUsers', users)
+
+    users.map(user => {
+      if (user.email !== email) {
+        addUser(user)
+      }
+    })
   })
 }
 
