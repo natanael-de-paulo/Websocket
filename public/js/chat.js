@@ -46,13 +46,11 @@ function onLoad() {
   })
 }
 
-onLoad()
-
 function addUser(user) {
   const usersList = document.getElementById('users_list')
   usersList.innerHTML += `
-    <li
-      class="user_name_list"
+    <li 
+      class="user_name_list flex items-center gap-3 divide-y"
       id="user_${user._id}"
       idUser="${user._id}"
       >
@@ -64,6 +62,20 @@ function addUser(user) {
     </li>
   `
 }
+
+document.getElementById('users_list').addEventListener('click', e => {
+  if (e.target && e.target.matches('li.user_name_list')) {
+    const idUser = e.target.getAttribute('idUser')
+
+    console.log('idUser', idUser)
+
+    socket.emit('start_chat', { idUser }, data => {
+      console.log(data)
+    })
+  }
+})
+
+onLoad()
 
 // function onLoad() {
 //   const urlParams = new URLSearchParams(window.location.search)

@@ -3,7 +3,7 @@ import express from "express"
 import path from 'path'
 import { createServer } from "http"
 import { Server } from "socket.io"
-import mongoose, { Types } from "mongoose"
+import mongoose from "mongoose"
 
 const app = express()
 const server = createServer(app)
