@@ -1,43 +1,43 @@
 .user_name {
-  padding: 10px;
+  padding: 0.7em;
   display: flex;
   align-items: center;
 }
 
 .img_user {
-  width: 50px;
-  height: 50px;
+  width: 3.12em;
+  height: 3.12em;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 0.7em;
 }
 
 .user_name_date {
-  margin-left: 20px;
+  margin-left:  1.25em;
 }
 
 .messages {
-  padding: 10px;
+  padding: 0.7em;
 }
 
 .chat_message {
   display: flex;
-  padding: 5px 20px;
+  padding: 0.3em  1.25em;
 }
 
 .footer {
   position: absolute;
   bottom: 0;
-  height: 60px;
+  height: 3.75em;
 }
 
 .user_logged {
-  padding: 0 10px;
+  padding: 0 0.7em;
   display: flex;
   align-items: center;
 }
 
 .user_logged img {
-  margin-right: 10px;
+  margin-right: 0.7em;
 }
 
 .message_user {
@@ -51,7 +51,7 @@
 }
 
 *::-webkit-scrollbar {
-  width: 12px;
+  width: 0.75em;
 }
 
 *::-webkit-scrollbar-track {
@@ -60,19 +60,19 @@
 
 *::-webkit-scrollbar-thumb {
   background-color: #374151;
-  border-radius: 20px;
+  border-radius:  1.25em;
   border: 3px solid #28303b;
 }
 
 .user_in_focus {
   background: #374151;
-  border-radius: 5px;
+  border-radius: 0.3em;
   opacity: 0.7;
 }
 
 .nav_avatar {
-  width: 50px;
-  height: 50px;
+  width: 3.12em;
+  height: 3.12em;
   border-radius: 50%;
 }
 
@@ -81,23 +81,23 @@
   align-items: center;
   font-weight: bold;
   cursor: pointer;
-  padding: 6px;
+  padding: 0.4em;
 }
 
 .user_name_list img {
-  margin-right: 10px;
+  margin-right: 0.7em;
 }
 
 .avatar_user_logged {
-  margin-right: 10px;
-  width: 50px;
-  height: 50px;
+  margin-right: 0.7em;
+  width: 3.12em;
+  height: 3.12em;
   border-radius: 50%;
 }
 
 .notification {
-  width: 20px;
-  height: 20px;
+  width: 1.25em;
+  height:  1.25em;
   background: #ff0101;
   border-radius: 50%;
   margin: 3px -4px -27px -11px;
