@@ -36,6 +36,7 @@ io.on("connect", socket => {
     const room = await createChatRoomService.execute([data.idUser, userLogged._id])
     
     console.log(room);
-    callback(room)
+    callback({ room })
+    
   })
 })

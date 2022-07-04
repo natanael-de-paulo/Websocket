@@ -1,5 +1,5 @@
 const socket = io('http://localhost:3000')
-let idChatRoom = ''
+let roomId = ''
 
 socket.on('chat_iniciado', data => {
   console.log('data', data)
@@ -71,6 +71,7 @@ document.getElementById('users_list').addEventListener('click', e => {
 
     socket.emit('start_chat', { idUser }, data => {
       console.log(data)
+      roomId = data.room.idChatRoom
     })
   }
 })
