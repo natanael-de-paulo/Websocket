@@ -1,5 +1,5 @@
 const socket = io('http://localhost:3000')
-let roomId = ''
+let idChatRoom = ''
 
 socket.on('chat_iniciado', data => {
   console.log('data', data)
@@ -71,8 +71,25 @@ document.getElementById('users_list').addEventListener('click', e => {
 
     socket.emit('start_chat', { idUser }, data => {
       console.log(data)
-      roomId = data.room.idChatRoom
+      idChatRoom = data.room.idChatRoom
     })
+  }
+})
+
+document.getElementById('user_message').addEventListener('keypress', e => {
+  if (e.key === 'Enter') {
+    const message = e.target.value
+
+    console.log('Message:', message)
+
+    e.target.value = ''
+
+    const data = {
+      message,
+      idChatRoom
+    }
+
+    socket.emit('message', data)
   }
 })
 

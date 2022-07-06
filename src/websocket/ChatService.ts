@@ -52,4 +52,10 @@ io.on("connect", socket => {
     callback({ room })
     
   })
+
+  socket.on("message",async data => {
+    const getUserBySocketIdService = container.resolve(GetUserBySocketIdService)
+
+    const user = await getUserBySocketIdService.execute(socket.id)
+  })
 })
