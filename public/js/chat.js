@@ -46,6 +46,10 @@ function onLoad() {
   })
 }
 
+socket.on('message', data => {
+  console.log('mensagem', data)
+})
+
 function addUser(user) {
   const usersList = document.getElementById('users_list')
   usersList.innerHTML += `

@@ -8,7 +8,7 @@ import mongoose from "mongoose"
 const app = express()
 const server = createServer(app)
 
-mongoose.connect("mongodb://localhost/rocketsocket")
+mongoose.connect("mongodb://localhost/testsocket")
 
 app.use(express.static(path.join(__dirname, "..", "public")))
 
