@@ -95,9 +95,18 @@ document.getElementById('users_list').addEventListener('click', e => {
 
     console.log('idUser', idUser)
 
-    socket.emit('start_chat', { idUser }, data => {
-      console.log(data)
-      idChatRoom = data.room.idChatRoom
+    socket.emit('start_chat', { idUser }, response => {
+      console.log(response)
+      idChatRoom = response.room.idChatRoom
+
+      response.messages.forEach(message => {
+        const data = {
+          message,
+          user: message.to
+        }
+
+        addMessage(data)
+      })
     })
   }
 })
@@ -107,7 +116,6 @@ document.getElementById('user_message').addEventListener('keypress', e => {
     const message = e.target.value
 
     console.log('Message:', message)
-
     e.target.value = ''
 
     const data = {
