@@ -47,8 +47,30 @@ function onLoad() {
 }
 
 socket.on('message', data => {
-  console.log('mensagem', data)
+  console.log('a mensagem', data)
+  addMessage(data)
 })
+
+function addMessage(data) {
+  const divMessageUser = document.getElementById('message_user')
+
+  divMessageUser.innerHTML += `
+    <span class="user_name user_name_date">
+        <img
+          class="img_user"
+          src=${data.user.avatar}
+        />
+        <strong> ${data.user.name} &nbsp; </strong>
+        <span>  ${dayjs(data.message.createdAt).format(
+          'DD/MM/YYYY HH:mm'
+        )} </span>
+    </span>
+    
+    <div class="messages">
+      <span class="chat_message"> ${data.message.text}</span>
+    </div>
+  `
+}
 
 function addUser(user) {
   const usersList = document.getElementById('users_list')
