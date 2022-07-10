@@ -1,17 +1,13 @@
 const socket = io('http://localhost:3000')
 let idChatRoom = ''
 
-socket.on('chat_iniciado', data => {
-  console.log('data', data)
-})
+socket.on('chat_iniciado', data => {})
 
 function onLoad() {
   const urlParams = new URLSearchParams(window.location.search)
   const name = urlParams.get('name')
   const avatar = urlParams.get('avatar')
   const email = urlParams.get('email')
-
-  console.log(name, avatar, email)
 
   document.querySelector('.user_logged').innerHTML += `
     <img
@@ -36,20 +32,31 @@ function onLoad() {
   })
 
   socket.emit('get_users', users => {
-    console.log('getUsers', users)
-
     users.map(user => {
       if (user.email !== email) {
         addUser(user)
       }
     })
   })
-}
 
-socket.on('message', data => {
-  console.log('a mensagem', data)
-  addMessage(data)
-})
+  socket.on('message', data => {
+    if (data.message.roomId === idChatRoom) {
+      addMessage(data)
+    }
+  })
+
+  socket.on('notification', data => {
+    if (data.roomId != idChatRoom) {
+      const user = document.getElementById(`user_${data.from._id}`)
+      user.insertAdjacentHTML(
+        'afterbegin',
+        `
+      <div class="notification"></div>
+      `
+      )
+    }
+  })
+}
 
 function addMessage(data) {
   const divMessageUser = document.getElementById('message_user')
@@ -95,10 +102,13 @@ document.getElementById('users_list').addEventListener('click', e => {
   if (e.target && e.target.matches('li.user_name_list')) {
     const idUser = e.target.getAttribute('idUser')
 
-    console.log('idUser', idUser)
+    const notification = document.querySelector(`#user_${idUser} .notification`)
+
+    if (notification) {
+      notification.remove()
+    }
 
     socket.emit('start_chat', { idUser }, response => {
-      console.log(response)
       idChatRoom = response.room.idChatRoom
 
       response.messages.forEach(message => {
@@ -117,7 +127,6 @@ document.getElementById('user_message').addEventListener('keypress', e => {
   if (e.key === 'Enter') {
     const message = e.target.value
 
-    console.log('Message:', message)
     e.target.value = ''
 
     const data = {
