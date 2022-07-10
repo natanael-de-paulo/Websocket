@@ -90,6 +90,8 @@ function addUser(user) {
 }
 
 document.getElementById('users_list').addEventListener('click', e => {
+  document.getElementById('message_user').innerHTML = ''
+
   if (e.target && e.target.matches('li.user_name_list')) {
     const idUser = e.target.getAttribute('idUser')
 
