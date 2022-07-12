@@ -98,11 +98,17 @@ function addUser(user) {
 
 document.getElementById('users_list').addEventListener('click', e => {
   const inputMessage = document.getElementById('user_message')
-  inputMessage.classList.remove("hidden")
+  inputMessage.classList.remove('hidden')
+
+  document
+    .querySelectorAll('li.user_name_list')
+    .forEach(item => item.classList.remove('user_in_focus'))
 
   document.getElementById('message_user').innerHTML = ''
   if (e.target && e.target.matches('li.user_name_list')) {
     const idUser = e.target.getAttribute('idUser')
+
+    e.target.classList.add('user_in_focus')
 
     const notification = document.querySelector(`#user_${idUser} .notification`)
 
@@ -141,4 +147,3 @@ document.getElementById('user_message').addEventListener('keypress', e => {
 })
 
 onLoad()
-
