@@ -11,7 +11,7 @@ const UserSchema = new Schema({
   email: String,
   socketId: String,
   name: String,
-  avatar: String
+  avatar: String,
 });
 
 
