@@ -19,10 +19,9 @@ form.addEventListener('submit', e => {
   validationInvalidEmail('email', name.value)
 
   validationNotNull({
-    inputName: 'name',
-    value: name.value
+    inputName: 'email',
+    value: email.value
   })
-  validationInvalidEmail('name', name.value)
 
   if (inputValidationFails.length > 0) {
     return
@@ -79,4 +78,20 @@ function validationNotNull({
 
     errorElement.textContent = message
   }
+}
+
+function validationInvalidEmail(nome, value) {
+  const element = document.getElementsByName(nome)[1]
+  const message = 'E-mail inválido'
+
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+    return
+  }
+
+  inputValidationFails.push({
+    name: nome,
+    error: message
+  })
+
+  element.textContent = message
 }
