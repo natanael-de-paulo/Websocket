@@ -1,97 +1,97 @@
-let inputValidationFails = []
-const form = document.forms.formData
+// let inputValidationFails = []
+// const form = document.forms.formData
 
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  inputValidationFails = []
+// form.addEventListener('submit', e => {
+//   e.preventDefault()
+//   inputValidationFails = []
 
-  const { name, email, avatar } = form
+//   const { userName, userEmail } = form
 
-  console.log('data', name, email, avatar)
+//   console.log('data', userName, userEmail)
 
-  clearAllValidations()
+//   clearAllValidations()
 
-  validationNotNull({
-    inputName: 'name',
-    value: name.value
-  })
+//   validationNotNull({
+//     inputName: 'userName',
+//     value: userName.value
+//   })
 
-  validationInvalidEmail('email', name.value)
+//   validationInvalidEmail('userName', userName.value)
 
-  validationNotNull({
-    inputName: 'email',
-    value: email.value
-  })
+//   validationNotNull({
+//     inputName: 'email',
+//     value: email.value
+//   })
 
-  if (inputValidationFails.length > 0) {
-    return
-  }
+//   if (inputValidationFails.length > 0) {
+//     return
+//   }
 
-  console.log('Formulário enviado.')
-})
+//   console.log('Formulário enviado.')
+// })
 
-function clearAllValidations() {
-  inputValidationFails = []
+// function clearAllValidations() {
+//   inputValidationFails = []
 
-  const elements = document.getElementsByClassName('form-validation')
-  console.log('ele', elements)
+//   const elements = document.getElementsByClassName('form-validation')
+//   console.log('ele', elements)
 
-  for (let i = 0; elements.length >= i; i++) {
-    const elements = document.querySelectorAll('p')
+//   for (let i = 0; elements.length >= i; i++) {
+//     const elements = document.querySelectorAll('p')
 
-    elements.forEach(e => {
-      if (e.getAttribute('class') === 'form-validation') {
-        e.textContent = ''
-      }
-    })
-  }
-}
+//     elements.forEach(e => {
+//       if (e.getAttribute('class') === 'form-validation') {
+//         e.textContent = ''
+//       }
+//     })
+//   }
+// }
 
-function validationNotNull({
-  inputName,
-  value,
-  inputElement,
-  enabledInputDisabled = true
-}) {
-  let element
-  const message = 'Este campo é obrigatório'
+// function validationNotNull({
+//   inputName,
+//   value,
+//   inputElement,
+//   enabledInputDisabled = true
+// }) {
+//   let element
+//   const message = 'Este campo é obrigatório'
 
-  element = inputElement
+//   element = inputElement
 
-  if (!inputElement) {
-    element = document.getElementsByName(inputName)[0]
-  }
+//   if (!inputElement) {
+//     element = document.getElementsByName(inputName)[0]
+//   }
 
-  const elementDisabled = element.getAttribute('disabled')
+//   const elementDisabled = element.getAttribute('disabled')
 
-  if (enabledInputDisabled || (!enabledInputDisabled && !elementDisabled)) {
-    const errorElement = element.nextElementSibling
+//   if (enabledInputDisabled || (!enabledInputDisabled && !elementDisabled)) {
+//     const errorElement = element.nextElementSibling
 
-    if (typeof value === 'string' && value) {
-      return
-    }
+//     if (typeof value === 'string' && value) {
+//       return
+//     }
 
-    inputValidationFails.push({
-      name: inputName,
-      error: message
-    })
+//     inputValidationFails.push({
+//       name: inputName,
+//       error: message
+//     })
 
-    errorElement.textContent = message
-  }
-}
+//     errorElement.textContent = message
+//   }
+// }
 
-function validationInvalidEmail(nome, value) {
-  const element = document.getElementsByName(nome)[1]
-  const message = 'E-mail inválido'
+// function validationInvalidEmail(name, value) {
+//   const element = document.getElementsByName(name)[1]
+//   const message = 'E-mail inválido'
 
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
-    return
-  }
+//   if (/\S+@\S+\.\S+/.test(value)) {
+//     return
+//   }
 
-  inputValidationFails.push({
-    name: nome,
-    error: message
-  })
+//   inputValidationFails.push({
+//     name: name,
+//     error: message
+//   })
 
-  element.textContent = message
-}
+//   element.textContent = message
+// }
