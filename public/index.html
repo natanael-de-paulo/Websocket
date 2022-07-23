@@ -24,7 +24,12 @@
         class="box-border flex flex-col items-center w-full max-w-sm gap-5 shadow-md rounded px-8 pt-6 pb-12"
       >
         <h1 class="text-xl sm:text-2xl font-bold">Entrar na sala</h1>
-        <form action="chat.html" class="box-border w-full bg-white">
+        <form
+          action="chat.html"
+          onsubmit="return bla()"
+          name="loginForm"
+          class="box-border w-full bg-white"
+        >
           <div class="mb-8">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -40,6 +45,7 @@
               placeholder="Digite seu Nome"
               maxlength="45"
             />
+            <p class="form-validation" name="name"></p>
           </div>
 
           <div class="mb-8">
@@ -58,6 +64,7 @@
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               maxlength="45"
             />
+            <p class="form-validation" name="email"></p>
           </div>
 
           <div class="mb-8">
