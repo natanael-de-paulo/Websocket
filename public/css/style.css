@@ -1,4 +1,21 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #374151 #28303b;
+}
 
+*::-webkit-scrollbar {
+  width: 0.75em;
+}
+
+*::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #374151;
+  border-radius:  1.25em;
+  border: 3px solid #28303b;
+}
 
 .user_name {
   padding: 0.7em;
@@ -33,38 +50,17 @@
 }
 
 .user_logged {
-  padding: 0 0.7em;
+  padding: 0.4em;
   display: flex;
   align-items: center;
 }
 
-.user_logged img {
-  margin-right: 0.7em;
-}
 
 .message_user {
   overflow-y: scroll;
   height: 90vh;
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #374151 #28303b;
-}
-
-*::-webkit-scrollbar {
-  width: 0.75em;
-}
-
-*::-webkit-scrollbar-track {
-  background: #374151;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #374151;
-  border-radius:  1.25em;
-  border: 3px solid #28303b;
-}
 
 .user_in_focus {
   background: #374151;
@@ -87,9 +83,7 @@
 }
 
 
-
 .avatar_user_logged {
-  margin-right: 0.7em;
   width: 3.12em;
   height: 3.12em;
   border-radius: 50%;
@@ -98,7 +92,7 @@
 .notification {
   width: 1.25em;
   height:  1.25em;
-  background: #ff0101;
+  background: #19ab34;
   border-radius: 50%;
   margin: 3px -4px -27px -11px;
   border: 2px solid #000;
