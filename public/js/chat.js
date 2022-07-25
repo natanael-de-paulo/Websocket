@@ -83,7 +83,7 @@ function addUser(user) {
   const usersList = document.getElementById('users_list')
   usersList.innerHTML += `
     <li 
-      class="user_name_list flex items-center gap-3 divide-y"
+      class="user_name_list flex items-center gap-3 "
       id="user_${user._id}"
       idUser="${user._id}"
       >
@@ -91,7 +91,7 @@ function addUser(user) {
           class="nav_avatar"
           src=${user.avatar}
         />
-        ${user.name}
+        <strong>${user.name}</strong>
     </li>
   `
 }

@@ -4,7 +4,7 @@
 }
 
 *::-webkit-scrollbar {
-  width: 0.75em;
+  width: 0;
 }
 
 *::-webkit-scrollbar-track {
@@ -17,8 +17,14 @@
   border: 3px solid #28303b;
 }
 
+
+body{
+  overflow-x: hidden;
+}
+
+
 .user_name {
-  padding: 0.7em;
+  padding: 0.7em 0.7em 0.7em 1.25em;
   display: flex;
   align-items: center;
 }

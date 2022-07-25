@@ -16,13 +16,13 @@
     <title>Websocket</title>
   </head>
 
-  <body class="h-screen">
-    <main class="w-screen h-full flex flex-1 text-white">
+  <body class="w-screen h-screen">
+    <main class="h-full flex text-slate-500">
       <!-- Left -->
       <article
-        class="w-1/5 flex flex-col justify-between bg-gray-900 position-relative"
+        class="flex flex-col justify-between bg-gray-200 position-relative"
       >
-        <div id="users" class="m-3 bg-red-900">
+        <div id="users" class="m-3">
           <div class="bg-green w-4"></div>
           <ul class="grid grid-cols-1 gap-3" id="users_list">
             <!-- <li
@@ -40,7 +40,7 @@
         </div>
 
         <div class="m-3 flex">
-          <div class="user_logged flex w-full bg-red-900 gap-1.5 p-1.5">
+          <div class="user_logged flex w-full gap-1.5 p-1.5">
             <!-- <img
                 class="avatar_user_logged"
                 src=""
@@ -51,14 +51,17 @@
       </article>
 
       <!-- Right -->
-      <article class="w-4/5 bg-gray-700" id="c_message">
-        <div class="message_user" id="message_user">
+      <article
+        class="flex-1 flex flex-col justify-between bg-gray-600 text-gray"
+        id="c_message"
+      >
+        <div class="message_user text-gray" id="message_user">
           <!-- <span class="user_name user_name_date">
               <img
                 class="img_user"
-                src="https://avatars.githubusercontent.com/u/5041791?v=4"
+                src=""
               />
-              <strong>Daniele Leão Evangelista</strong>
+              <strong>User</strong>
               <span> 20/10/2020</span></span
             >
             <div class="messages">
@@ -69,7 +72,7 @@
         <input
           type="text"
           id="user_message"
-          class="shadow bg-gray-600 absolute bottom-0 w-8/12 m-3 p-2 rounded focus:outline-none hidden"
+          class="shadow bg-slate-200 bottom-0 m-3 p-2 rounded focus:outline-none hidden"
           placeholder="Digite sua mensagem"
         />
       </article>
